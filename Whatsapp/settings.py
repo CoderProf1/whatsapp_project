@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-6^)czv_)-#p04q^-ev1%!e9@e^ff$-^t*u*i1h5aml302i3^lq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://coderprof1.github.io/whatsapp_project/']
 
 
 # Application definition
