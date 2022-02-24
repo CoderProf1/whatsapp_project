@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="shortcut icon" href="{% static 'images/my/logo.png' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="{{STATIC_URL|default:'/static/'}}css/main.css">
+    <script src="{{STATIC_URL|default:'/static/'}}js/jquery.js"></script>
+
+</head>
+<body>
+
+    <nav>
+        <ul class="first">
+            <img src="{% static 'images/my/logo.png' %}" alt="Logo Image is Not Available">
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'about' %}">About Us</a>
+            <a href="{% url 'statics' %}">Statics</a>
+        </ul>
+        <ul class="second">
+            {% if not login %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'register' %}">Register</a>
+            {% else %}
+                <a href="{% url 'index' %}">Logout</a>
+            {% endif %}
+            <i class="fas fa-bars" id="show"></i>
+            <i  class="fas fa-moon" aria-hidden="true" id="dark"></i>
+            <i  class="fas fa-sun" aria-hidden="true" id="light"></i>
+        </ul>
+    </nav>
+    <div class="hide-nav">
+        <ul>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'about' %}">About Us</a>
+            <a href="{% url 'statics' %}">Statics</a>
+            {% if not login %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'register' %}">Register</a>
+            {% else %}
+                <a href="{% url 'index' %}">Logout</a>
+            {% endif %}
+        </ul>
+    </div>
+        
+    {% block content %} 
+    {% endblock %}
+
+    {% if footer %}
+
+
+    <footer>
+        <div class="foot">
+            <div class="first">
+                <a href="{% url 'index' %}" class="logo"> 
+                    <i class="fas fa-paper-plane"></i>
+                    What's App
+                </a>
+                <p>Social Networks</p>
+                <div class="share">
+                    <a href="https://www.facebook.com" target="_blank" class="fab fa-facebook-f"></a>
+                    <a href="https://www.twitter.com" target="_blank" class="fab fa-twitter"></a>
+                    <a href="https://www.instagram.com" target="_blank" class="fab fa-instagram"></a>
+                    <a href="https://www.linkedin.com" target="_blank" class="fab fa-linkedin"></a>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3>Quick Links</h3>
+                <a href="{% url 'index' %}" class="links"> <i class="fas fa-arrow-right"></i> Home </a>
+                <a href="{% url 'about' %}" class="links"> <i class="fas fa-arrow-right"></i> About Us </a>
+                <a href="{% url 'statics' %}" class="links"> <i class="fas fa-arrow-right"></i> Statics </a>
+                <a href="{% url 'index' %}#blogs" class="links"> <i class="fas fa-arrow-right"></i> Blogs </a>
+                {% if not login %}
+                    <a href="{% url 'register' %}" class="links"> <i class="fas fa-arrow-right"></i> Start Now </a>
+                {% else %}
+                    <a href="{% url 'account' %}" class="links"> <i class="fas fa-arrow-right"></i> Start Now </a>
+                {% endif %}
+            </div>
+
+            <div class="box">
+                <h3>Contact Info</h3>
+                <p> <i class="fas fa-map"></i> Egypt </p>
+                <p> <i class="fas fa-phone"></i> +20121083507 </p>
+                <p> <i class="fas fa-envelope"></i> abdulrahman123@gmail.com </p>
+                <p> <i class="fas fa-clock"></i> 7:00 AM - 10:00 PM </p>
+            </div>
+        </div>
+        <hr>
+        <p>Created By: Abdulrahman Yasser  | Copyright &copy; 2022</p>
+    </footer>
+
+    {% endif %}
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="{{STATIC_URL|default:'/static/'}}js/main.js"></script>
+    <script>
+        $("nav #show").click(function(){
+            $(".hide-nav").toggle();
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<main class="home">
+    <div class="header">
+        <div class="left">
+            <h1>Simple, Reliable Messaging</h1>
+            <hr>
+            <ul>
+                <li>First, Create Your First Account ?</li>
+                <li>Message Your Friends And Family For Free*. </li>
+                <li>WhatsApp Uses Your Phone's Internet Connection To Send Messages.</li>
+                <li>Whatsapp Voice and Video Calls SPEAK FREELY</li>
+                <li>Document Sharing Made Easy</li>
+                <li>Some of your most personal moments are shared on WhatsApp,</li>
+                <li>Privacy and Security is in our DNA</li>
+            </ul>
+            {% if not login%}
+                <a href="{% url 'register' %}">Start Now</a>
+            {% else %}
+                <a href="{% url 'account' %}">Start Now</a>
+            {% endif %}
+        </div>
+        <div class="right" style="background-image: url({% static 'images/my/back.jpg' %})"></div>
+    </div>
+    <div class="header1">
+        <p>Our Service</p>
+        <h1>Countless Expericences</h1>
+        <div class="feature">
+            <div class="fe">
+                <i class="fas fa-globe"></i>
+                <h1>World Wide</h1>
+                <p>Lorem Ipsum Dolor Sit, Amet Consectetur Adipisicing Elit. Numquam, Cumque.</p>
+            </div>
+            <div class="fe">
+                <i class="fas fa-hiking"></i>
+                <h1>Adventures</h1>
+                <p>Lorem Ipsum Dolor Sit, Amet Consectetur Adipisicing Elit. Numquam, Cumque.</p>
+            </div>
+            <div class="fe"> 
+                <i class="fa fa-users"></i>
+                <h1>Developers</h1>
+                <p>Lorem Ipsum Dolor Sit, Amet Consectetur Adipisicing Elit. Numquam, Cumque.</p>
+            </div>
+            <div class="fe">
+                <i class="fab fa-whatsapp"></i>
+                <h1>Messages</h1>
+                <p>Lorem Ipsum Dolor Sit, Amet Consectetur Adipisicing Elit. Numquam, Cumque.</p>
+            </div>
+            <div class="fe">
+                <i class="fas fa-video"></i>
+                <h1>Video Calls</h1>
+                <p>Lorem Ipsum Dolor Sit, Amet Consectetur Adipisicing Elit. Numquam, Cumque.</p>
+            </div>
+            <div class="fe">
+                <i class="fas fa-headset"></i>
+                <h1>24/7 Support</h1>
+                <p>Lorem Ipsum Dolor Sit, Amet Consectetur Adipisicing Elit. Numquam, Cumque.</p>
+            </div>
+        </div>
+    </div><br>
+    <div class="header1" id="blogs">
+        <p>Blogs & Posts</p>
+        <h1>What'sApp Untold Stories</h1>
+        <div class="feature">
+            <div class="blog">
+                <div class="img">
+                    <img src="{% static 'images/my/desert.png' %}" alt="">
+                </div>
+                <div class="title">
+                    <a href="#">Life Is A Journey, Not A Destination</a>
+                    <p>We Untold Stories We Untold Stories We Untold Stories We Untold Stories</p>
+                </div>
+                <div class="info">
+                    <ul>
+                        <a href="#"><i class="fas fa-clock"></i></a>
+                        <a href="#">12st May, 2022</a>
+                    </ul>
+                    <ul>
+                        <a href="#"><i class="fa fa-user"></i></a>
+                        <a href="#">By ahmed23</a>
+                    </ul>
+                </div>
+            </div>
+            <div class="blog">
+                <div class="img">
+                    <img src="{% static 'images/my/desert.png' %}" alt="">
+                </div>
+                <div class="title">
+                    <a href="#">Life Is A Journey, Not A Destination</a>
+                    <p>We Untold Stories We Untold Stories We Untold Stories We Untold Stories</p>
+                </div>
+                <div class="info">
+                    <ul>
+                        <a href="#"><i class="fas fa-clock"></i></a>
+                        <a href="#">12st May, 2022</a>
+                    </ul>
+                    <ul>
+                        <a href="#"><i class="fa fa-user"></i></a>
+                        <a href="#">By ahmed23</a>
+                    </ul>
+                </div>
+            </div>
+            <div class="blog">
+                <div class="img">
+                    <img src="{% static 'images/my/desert.png' %}" alt="">
+                </div>
+                <div class="title">
+                    <a href="#">Life Is A Journey, Not A Destination</a>
+                    <p>We Untold Stories We Untold Stories We Untold Stories We Untold Stories</p>
+                </div>
+                <div class="info">
+                    <ul>
+                        <a href="#"><i class="fas fa-clock"></i></a>
+                        <a href="#">12st May, 2022</a>
+                    </ul>
+                    <ul>
+                        <a href="#"><i class="fa fa-user"></i></a>
+                        <a href="#">By ahmed23</a>
+                    </ul>
+                </div>
+            </div>
+            <div class="blog">
+                <div class="img">
+                    <img src="{% static 'images/my/desert.png' %}" alt="">
+                </div>
+                <div class="title">
+                    <a href="#">Life Is A Journey, Not A Destination</a>
+                    <p>We Untold Stories We Untold Stories We Untold Stories We Untold Stories</p>
+                </div>
+                <div class="info">
+                    <ul>
+                        <a href="#"><i class="fas fa-clock"></i></a>
+                        <a href="#">12st May, 2022</a>
+                    </ul>
+                    <ul>
+                        <a href="#"><i class="fa fa-user"></i></a>
+                        <a href="#">By ahmed23</a>
+                    </ul>
+                </div>
+            </div>
+            <div class="blog">
+                <div class="img">
+                    <img src="{% static 'images/my/desert.png' %}" alt="">
+                </div>
+                <div class="title">
+                    <a href="#">Life Is A Journey, Not A Destination</a>
+                    <p>We Untold Stories We Untold Stories We Untold Stories We Untold Stories</p>
+                </div>
+                <div class="info">
+                    <ul>
+                        <a href="#"><i class="fas fa-clock"></i></a>
+                        <a href="#">12st May, 2022</a>
+                    </ul>
+                    <ul>
+                        <a href="#"><i class="fa fa-user"></i></a>
+                        <a href="#">By ahmed23</a>
+                    </ul>
+                </div>
+            </div>
+            <div class="blog">
+                <div class="img">
+                    <img src="{% static 'images/my/desert.png' %}" alt="">
+                </div>
+                <div class="title">
+                    <a href="#">Life Is A Journey, Not A Destination</a>
+                    <p>We Untold Stories We Untold Stories We Untold Stories We Untold Stories</p>
+                </div>
+                <div class="info">
+                    <ul>
+                        <a href="#"><i class="fas fa-clock"></i></a>
+                        <a href="#">12st May, 2022</a>
+                    </ul>
+                    <ul>
+                        <a href="#"><i class="fa fa-user"></i></a>
+                        <a href="#">By ahmed23</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header2" style="background-image : url({% static 'images/my/desert.png' %})">
+        <p>Start Your Advertis Now</p>
+        <h1>Let's Explore This World</h1>
+        <p>Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit.
+            Earum Voluptatum Praesentium Amet Quibusdam Quam Officia Suscipit Odio.</p>
+        {% if not login%}
+            <a href="{% url 'register' %}">Start Now</a>
+        {% else %}
+            <a href="{% url 'account' %}">Start Now</a>
+        {% endif %}
+
+    </div>
+</main>
+
+{% endblock %}
