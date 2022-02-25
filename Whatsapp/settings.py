@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from django.core.management.utils import get_random_secret_key
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -21,13 +22,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-6^)czv_)-#p04q^-ev1%!e9@e^ff$-^t*u*i1h5aml302i3^lq'
+#SECRET_KEY = 'django-insecure-6^)czv_)-#p04q^-ev1%!e9@e^ff$-^t*u*i1h5aml302i3^lq'
+
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ['127.0.0.1:8000', 'https://coderprof1.github.io/whatsapp_project/']
-
+#ALLOWED_HOSTS = ['127.0.0.1:8000', 'https://coderprof1.github.io/whatsapp_project/']
+ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1, localhost").split(",")
 
 # Application definition
 
@@ -74,17 +78,30 @@ WSGI_APPLICATION = 'Whatsapp.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'whatsapp',
-        'USER': 'root',
-        'PASSWORD': 'CoderProf123',
-        'HOST': 'localhost',
-        'PORT': '3306'
+if os.getenv("DATABASE_URL", "") != "":
+    r.urlparse(os.environ.get("DATABASE_URL"))
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql_psycopg2",
+            "NAME": os.path.realpath(r.path, "/"),
+            "USER": r.username,
+            "PASSWORD": r.password,
+            "HOST": r.hostname,
+            "PORT": r.port,
+            "OPTIONS": {"sslmode": "require"},
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'whatsapp',
+            'USER': 'root',
+            'PASSWORD': 'CoderProf123',
+            'HOST': 'localhost',
+            'PORT': '3306'
+        }
+    }
 
 
 # Password validation
